@@ -6,7 +6,7 @@ x = np.array([1,2,3,4,5])
 y = np.array([1,2,3,4,5])
 
 model = Sequential()
-model.add(Dense(5, imput_dim=1, avtivation='relu'))
+model.add(Dense(5, input_dim=1, activation='relu'))
 model.add(Dense(3))
 model.add(Dense(1))
 
