@@ -15,3 +15,5 @@ model.fit(x,y, epochs=100, batch_size=1)
 
 loss, acc = model.evaluate(x, y, batch_size=1)
 print("acc : ", acc)
+
+# mse :  0.6686849489808082
