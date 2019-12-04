@@ -34,3 +34,11 @@ print("loss : ", loss)
 
 y_predict = model.predict(x_predict)
 print(y_predict)
+
+# acc :  1.0
+# loss :  0.018535953015089035
+# [[21.232933]
+#  [22.252846]
+#  [23.272768]
+#  [24.292685]
+#  [25.312603]]
