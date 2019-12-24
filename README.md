@@ -1,2 +1,1 @@
-# satysmaim00
-# Keras
+ㅎㅅㅎ
