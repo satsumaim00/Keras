@@ -1,0 +1,25 @@
+
+#2일차 20191227
+#agreegate():다양한 함수를 사용하여 계산결과를 출력
+#apply()
+#cor():상관함수
+#comsum():누적합
+#cumprom():누적곱
+#diff() : 차이나는 부분을 찾아냄
+#length() : 길이
+#max()
+#min()
+#mean()
+#median()
+#order()
+#pord() : 누적곱
+#range() : 범위값
+#rank() 
+#rev() : 요소 역순
+#sd() : 표준편차
+#sort() : 정렬
+#sum()
+#summary()
+#sweep():일괄적으로 중진 데이터를 뺴기
+#tapply:()백터엣 중진 함수 연산
+#var(): 분산
