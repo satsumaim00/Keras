@@ -1,0 +1,124 @@
+#Binary Search Tree: 검색 트리
+class Node:
+    def __init__(self, key, value, left=None, right=None):
+        self.key= key
+        self.value=value
+        self.left=left
+        self.right=right
+
+class BST:
+    def __init__(self):
+        self.root=None
+
+        #검색기능
+        def get(self, i):
+            return self.getItem(self.root, k)
+
+        def getItem(self, n, k):
+            if n==None: #빈상태
+                return None;
+            if n.key>k:
+                return self.getItem(n.left, k)
+            elif n.key<k:
+                return self.getItem(n.right, k)
+            else: #n.key==k 찾은 경우
+                return n.value
+    #노드 삽입
+    def put(self, key, value):
+        self.root = self.putItem(self.root, key, value)
+
+    def putItem(self, n, k, v):
+        if n==None:
+            return Node(k, v)
+        if n.key>k:
+            n.left=self.putItem(n.left, k, v)
+            if n.key<k:
+                n.right=self.putItem(n.right, k, v)
+            else: # n.key== k 같은 노드가 있는 경우 삽입불가/갱신
+                n.value=v
+            return n
+
+    #메뉴만들깨 전체에서 최소값 삭제
+    def delete_min(self): # 최소값 삭제
+        if self.root==None:
+            print('트리가 비었다.')
+        self.left=self.del_min(self.root)
+
+    #특정노드 아래에서 최소값 삭제
+    def del_min(self, n): #최소값 삭제
+        if n.left==None:
+            return  n.right
+        n.left=self.del_min(n.left)
+        return n
+
+    def min(self): # 최소값 찾기
+        if self.root==None:
+            return None
+        return self.minimun(self.root)
+
+    def minimun(self, n):
+        if n.left==None:
+            return n
+        return self.minimun(n.left)
+
+    def inorder(self, n):
+        if n!=None: #왼쪽 노드가 없으면
+            if n.left:
+                self.inorder(n.left)
+            print('['+ str(n.key) + ', '+ n.value + ']', end='')
+            if n.right:
+                self.inorder(n.right)
+
+    # def max(self):  # 최대값 찾기
+    #     if self.root == Node:
+    #         return None
+    #     return self.maximun(self.root)
+    #
+    # def maximun(self, n):
+    #     if n.right == Node:
+    #         return n
+    #     return self.maximun(n.left)
+
+    def delete(self, k):
+        self.root=self.delNode(self.root, k)
+
+    def delNode(self, n, k):
+        if n==None: #비어있어 삭제 못함
+            return None
+        if n.key>k:
+            n.left=self.delNode(n.left, k)
+        elif n.key < k:
+            n.right=self.delNode(n.right, k)
+        else: # == 삭제할 토드를 찾은 경우
+            #오른쪽 자노드가 없거나 자노드가 없는 겯우
+            if n.right == None:
+                return n.left
+            #왼쪽 자노드가 없는 경우
+            if n.left ==None:
+                return n.right
+            #자노드가 두개
+            t=n
+            n=self.minimun(t.left)
+            n.left = self.delete_min(t.left)
+            n.left=t.left
+        return n
+    #
+    # def delete_max(self, n):  # 최소값 삭제
+    #     if self.root == None:
+    #         print('BST가 비었다')
+    #         return None
+    #     self.root = self.delete_min(self.root)
+    #
+    #
+    # def del_max(self, n):
+    #     if n.right==None:
+    #         return n.left
+    #     n.right=self.del_max(n.right)
+    #     return n
+
+
+
+
+
+
+
