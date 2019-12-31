@@ -1,0 +1,24 @@
+from collections import  deque
+
+# dq=deque('data')
+dq=deque('data')
+for node in dq: #dq에서 노드를 하나씩 출력
+    print(node.upper(), end='') # upper 소문자를 대문자로 거꾸로는 lower
+print()
+
+dq.append('aaa') # aaa append 는 일반적으로 오른쪽 삽입?
+dq.appendleft('bbb') # bbb aaa
+dq.append('ccc') # bbb aaa ccc
+print(dq)
+print('deque=>',dq.pop()) # 말없으면 오른쪽
+print('deque=>',dq.popleft())
+print('deque=>',dq[-1])#오른쪽 끝
+print('deque=>', dq[0])
+print(dq)
+print('t' in dq) #dq안에 t 있냐 ture
+dq.extend('deque') #extend로 하면 하나씩 분리
+print(dq)
+dq.extendleft(reversed('python'))#reversed 문자열 뒤지어지는거 reverse를 안쓰면 p 부터 거꾸로 드러감
+print(dq)
+dq.reverse()# 뒤집어진다ㅏㅏㅏ
+print(dq)
