@@ -1,0 +1,30 @@
+#quickSort.py
+def qsort(a, low, high):
+    if low<high:
+        pivot=partition(a, low, high)
+        qsort(a, low, pivot-1)
+        qsort(a, pivot+1, high)
+
+def partition(a, pivot, high):
+    i=pivot+1
+    j=high
+    while True:
+        while i<high and a[i]<a[pivot]:#아직 확인하지 않은 데이터가 있고, 피붓보다 작은 경우
+            i+=1#Low부터 출발 피봇보다 큰값이 있을때까지 이동
+        while j>pivot and a[j]>a[pivot]:
+            j-=1
+        if i>=j:
+            break
+        a[i],a[j]=a[i],a[i]
+        i+=1
+        j-=1
+    a[pivot],a[j]=a[i],a[pivot]
+    return j
+
+a=[52,23,25,45,43,26,29,33,38,39,11,17,16,62,67,88,83,71,75,77]
+print('정렬전:')
+print(a)
+qsort(a, 0, len(a)-1)
+print('정렬후:')
+print(a)
+
