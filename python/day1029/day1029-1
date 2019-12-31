@@ -1,0 +1,31 @@
+# 재귀적 호출 RECURSIVE CALL - 가급적 사용하지 안는 것이 좋다.
+# 어쩔수 업시 사용해야 하는 경우
+# 예 팩토리얼, 피보나치수열, 트리 운행 등.
+# a -> a , a-> b -> a
+# 주의 반드시 내부에 종료조건을 포함
+# 피보나치 수열:피보나치
+# 0, 1, 1, 2, 3, 5, 8,13,21,
+# f(n)= f(n-1)+f(n-2)
+# 단, f(1)=0,f(2)=1
+#
+# # fortorial 함수 재귀적호출의 예
+# def fact(n):
+#     if n<=1:        # 재귀적 함수의 종료조건
+#         return  1
+#     else:
+#         return  n*fact(n-1)    # 재귀적 호출
+#
+# indata=int(input("숫자입력"))
+# print("fact(%d)="%(indata), fact(indata))    #5*4*3*2*1
+
+def fact(n):
+    res=1
+    for i in range(1, n+1):
+        res*=i
+
+    return res
+indata=int(input("숫자입력"))
+print("fact(%d)="%(indata), fact(indata))    #5*4*3*2*1
+
+
+
