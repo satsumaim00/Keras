@@ -1,0 +1,110 @@
+class cll:
+    class Node:
+        def __init__(self, name, link, ):
+            self.name = name
+            self.link = link
+
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.size = 0
+
+    def size(self):
+        return self.size
+
+    def isEmpty(self):
+        return self.size == 0
+
+    def insertFront(self, name):
+        if self.isEmpty():  # sLL이 빈상태에 첫노드 삽입
+            t=self.Node(name, None)
+            self.head=t
+            self.head.link=t
+            self.tail=t
+        else:  # sLL에 기존 노드가 있는 사태에서 헤드 다음[첫노드]삽입
+            self.head = self.Node(name, self.head)
+            self.tail.link=self.head
+        self.size += 1
+
+    def inserRear(self, name, p):  # name을 p다음에 삽입
+        if p == None:  # 삽입할 위치가 없거나,빈 경우 => 제일 앞 삽입
+            self.insertFront(name)
+        elif p != self.tail: #중간노드
+                p.link = cll.Node(name, p.link)
+        else:
+            t=cll.Node(name,p.tail.link)
+            self.tail.link=t  #마지막노드
+            self.tail =t
+        self.size += 1
+
+    def deleteFront(self):
+        if self.isEmpty():
+            raise EmptyError("Underflow")
+        else:
+            self.head = self.head.link
+            self.tail.link=self.head
+            self.size -= 1
+
+    def deleteRear(self, p):
+        if self.isEmpty():
+            raise EmptyError("Underflow")
+        elif p==None or self.head==self.tail:
+            self.head = self.tail = None
+        elif p.link!=self.tail:#중간
+            p.link = p.link.link  # p.link 마이콜 p.link.link = 도우너
+        elif p==self.head:#처음
+            self.deleteFront()
+        elif self.head==self.tail:#ㄱ삭제할 노드가 한개
+            self.head=self.tail=None
+
+        else:#끝노드
+            p.link = p.link.link
+            self.t=p
+        self.size -= 1
+
+    def search(self, trg):
+        p = self.head
+        t = None
+        for i in range(self.size):  # size=5가정 0~4반복
+            if trg == p.name:
+                t = i
+            p = p.link
+        return t
+
+    # def searchNode(self, trg):
+    #     p = self.head
+    #     while p.link!=self.head:  # size=5가정 0~4반복
+    #         if trg == p.name:
+    #             return p
+    #         p = p.link
+    #         if p.link==self.head and trg == p.name:
+    #             return p
+    #     return None   #이것도 됨
+
+    def searchNode(self, trg):
+        p = self.head
+        while True:  # size=5가정 0~4반복
+            if p.link==self.head and trg == p.name:
+                return p
+
+            if trg == p.name:
+                return None
+            p = p.link  #insertRear에 첫째줄 none값에 의해서 앞에써짐
+
+    def printsll(self):
+        p = self.head
+        while True:
+            if p==None:
+                print('head=', self.head, " tail=", self.tail)
+                break
+            if p!=self.tail:
+                print(p.name, "=>", end='')
+            else:
+                print(p.name,"[",p,"]=>", end='')
+                print('head=',self.head," tail=", self.tail)
+                break
+            p = p.link
+
+
+class EmptyError(Exception):
+    pass
