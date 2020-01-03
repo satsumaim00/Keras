@@ -1,0 +1,11 @@
+se-main-container
+
+	se-image-resource
+	se-component-content
+	se-sticker-image
+	canvas
+  
+post-view[:digit:]
+
+	se_mediaImage __se_img_el
+	p.se_textarea
