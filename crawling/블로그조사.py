@@ -31,7 +31,7 @@ list = [] #문자를 넣어주기 위한 리스트
 
 for li in lis:  # \u200b 제거후 텍스트 추출
     if li.text != '\u200b':
-        list.append(li.text)
+        list.append(li.text) #빈 리스트에 li의 텍스트를 반복문으로 이어 붙이기
 
 
 
