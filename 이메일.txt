@@ -1,6 +1,7 @@
 kingkeras@naver.com
 메일제목 광운 ㅁㅁㅁ 본문:github.com/주소/keras
 
+
 optimizer
 가장 빠르고 효율적으로 수행할 최적(최저비용)의
  처리경로를 생성해 주는 DBMS 내부의 핵심엔진
