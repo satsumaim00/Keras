@@ -1,3 +1,4 @@
+# 아이돌, 날짜, 네이버 뉴스 추출해서 엑셀파일 저장
 import pandas as pd
 from sqlalchemy import create_engine
 import urllib.request
